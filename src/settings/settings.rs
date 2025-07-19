@@ -15,7 +15,7 @@ struct SettingsValues(HashMap<String, String>);
 pub fn read_settings(app: &mut App) -> HashMap<String, String> {
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("configure");
     path.push("settings.yml");
 

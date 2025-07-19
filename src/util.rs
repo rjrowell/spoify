@@ -88,7 +88,7 @@ pub fn instruction() {
 pub fn save_creds_to_yml(app: &mut App) {
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("configure");
     path.push("creds.yml");
 

@@ -16,7 +16,7 @@ struct Keybindings(HashMap<String, String>);
 pub fn read_keybindings(app: &mut App) -> HashMap<String, String> {
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("configure");
     path.push("keybindings.yml");
 
@@ -105,7 +105,7 @@ pub fn parse_keybindings(app: &mut App, keys: &mut Key) {
     // Construct the paths relative to the root directory
     let mut yaml_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     yaml_path.push("..");
-    yaml_path.push(app.file_name.clone());
+    yaml_path.push("spoify");
     yaml_path.push("configure");
     yaml_path.push("keybindings.yml");
 

@@ -85,7 +85,7 @@ fn save_data_to_json(app: &mut App, items: CurrentPlaybackContext) {
     let json_data: Value = json!(items);
     let mut path: PathBuf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("spotify_cache");
     std::fs::create_dir_all(&path).unwrap();
     path.push("currently_playing.json");
@@ -109,7 +109,7 @@ pub fn process_currently_playing(app: &mut App, settings: &mut Settings) {
 
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("spotify_cache");
     path.push("currently_playing.json");
 

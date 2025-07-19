@@ -13,9 +13,14 @@ struct Creds(HashMap<String, String>);
 pub fn read_creds(app: &mut App) -> HashMap<String, String> {
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("configure");
     path.push("creds.yml");
+
+    println!("DEBUG: Looking for creds file at: {:?}", path);
+    println!("DEBUG: Path exists: {}", path.exists());
+    println!("DEBUG: app.file_name = {:?}", app.file_name);
+    println!("DEBUG: CARGO_MANIFEST_DIR = {:?}", env!("CARGO_MANIFEST_DIR"));
 
     let file = File::open(&path).expect("Unable to open creds file");
     let reader = BufReader::new(file);

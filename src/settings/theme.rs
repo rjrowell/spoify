@@ -19,7 +19,7 @@ pub fn read_theme(app: &mut App, settings: &mut Settings) -> HashMap<String, Val
 
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push("..");
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("configure");
     path.push(file_name);
 

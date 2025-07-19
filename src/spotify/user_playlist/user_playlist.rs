@@ -37,7 +37,7 @@ fn save_playlists_to_json(app: &mut App, playlists: &[SimplifiedPlaylist]) {
 
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("spotify_cache");
     std::fs::create_dir_all(&path).unwrap();
     path.push("playlists.json");
@@ -65,7 +65,7 @@ pub fn process_user_playlists(app: &mut App) {
 
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("spotify_cache");
     path.push("playlists.json");
 

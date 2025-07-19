@@ -41,13 +41,13 @@ pub async fn get_spotify_client(app: &mut App) -> Result<AuthCodeSpotify, Client
 
     let mut oauth = OAuth::default();
     oauth.scopes = scopes;
-    oauth.redirect_uri = "http://localhost:8888/callback".to_owned();
+    oauth.redirect_uri = "http://127.0.0.1:8888/callback".to_owned();
 
     let creds = Credentials::new(client_id, client_secret_id);
 
     let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     path.push(".."); // Move up to the root of the Git repository
-    path.push(app.file_name.clone());
+    path.push("spoify");
     path.push("spotify_cache");
 
     fs::create_dir_all(&path).unwrap();
